@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8265D6A21EBA2D700079D2DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265D6A11EBA2D700079D2DD /* main.m */; };
-		8265D6A51EBA2D700079D2DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265D6A41EBA2D700079D2DD /* AppDelegate.m */; };
-		8265D6A81EBA2D700079D2DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265D6A71EBA2D700079D2DD /* ViewController.m */; };
-		8265D6AB1EBA2D700079D2DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8265D6A91EBA2D700079D2DD /* Main.storyboard */; };
-		8265D6AD1EBA2D700079D2DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8265D6AC1EBA2D700079D2DD /* Assets.xcassets */; };
-		8265D6B01EBA2D700079D2DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8265D6AE1EBA2D700079D2DD /* LaunchScreen.storyboard */; };
 		8265D6BB1EBA2D700079D2DD /* BMCarouselViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265D6BA1EBA2D700079D2DD /* BMCarouselViewTests.m */; };
 		8265D6C61EBA2D700079D2DD /* BMCarouselViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8265D6C51EBA2D700079D2DD /* BMCarouselViewUITests.m */; };
+		8270885D1ED45D0A003AB4DC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 827088551ED45D0A003AB4DC /* AppDelegate.m */; };
+		8270885E1ED45D0A003AB4DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 827088561ED45D0A003AB4DC /* Assets.xcassets */; };
+		8270885F1ED45D0A003AB4DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 827088571ED45D0A003AB4DC /* LaunchScreen.storyboard */; };
+		827088601ED45D0A003AB4DC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 827088591ED45D0A003AB4DC /* Info.plist */; };
+		827088611ED45D0A003AB4DC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270885A1ED45D0A003AB4DC /* main.m */; };
+		827088621ED45D0A003AB4DC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270885C1ED45D0A003AB4DC /* ViewController.m */; };
+		827088651ED46104003AB4DC /* BMCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 827088641ED46104003AB4DC /* BMCarouselView.m */; };
+		827088681ED46367003AB4DC /* BMCarouselCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 827088671ED46367003AB4DC /* BMCarouselCollectionViewFlowLayout.m */; };
+		8270886B1ED46392003AB4DC /* BMCarouselCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8270886A1ED46392003AB4DC /* BMCarouselCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,21 +39,26 @@
 
 /* Begin PBXFileReference section */
 		8265D69D1EBA2D700079D2DD /* BMCarouselView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMCarouselView.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		8265D6A11EBA2D700079D2DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		8265D6A31EBA2D700079D2DD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		8265D6A41EBA2D700079D2DD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8265D6A61EBA2D700079D2DD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8265D6A71EBA2D700079D2DD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8265D6AA1EBA2D700079D2DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8265D6AC1EBA2D700079D2DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		8265D6AF1EBA2D700079D2DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		8265D6B11EBA2D700079D2DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8265D6B61EBA2D700079D2DD /* BMCarouselViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMCarouselViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8265D6BA1EBA2D700079D2DD /* BMCarouselViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMCarouselViewTests.m; sourceTree = "<group>"; };
 		8265D6BC1EBA2D700079D2DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8265D6C11EBA2D700079D2DD /* BMCarouselViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BMCarouselViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8265D6C51EBA2D700079D2DD /* BMCarouselViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BMCarouselViewUITests.m; sourceTree = "<group>"; };
 		8265D6C71EBA2D700079D2DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		827088541ED45D0A003AB4DC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		827088551ED45D0A003AB4DC /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		827088561ED45D0A003AB4DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		827088581ED45D0A003AB4DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		827088591ED45D0A003AB4DC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8270885A1ED45D0A003AB4DC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8270885B1ED45D0A003AB4DC /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8270885C1ED45D0A003AB4DC /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		827088631ED46104003AB4DC /* BMCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCarouselView.h; sourceTree = "<group>"; };
+		827088641ED46104003AB4DC /* BMCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCarouselView.m; sourceTree = "<group>"; };
+		827088661ED46367003AB4DC /* BMCarouselCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCarouselCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		827088671ED46367003AB4DC /* BMCarouselCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCarouselCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		827088691ED46392003AB4DC /* BMCarouselCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMCarouselCollectionViewCell.h; sourceTree = "<group>"; };
+		8270886A1ED46392003AB4DC /* BMCarouselCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMCarouselCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 		8265D6941EBA2D700079D2DD = {
 			isa = PBXGroup;
 			children = (
+				827088531ED45D0A003AB4DC /* BMCarouselViewDemo */,
 				8265D69F1EBA2D700079D2DD /* BMCarouselView */,
 				8265D6B91EBA2D700079D2DD /* BMCarouselViewTests */,
 				8265D6C41EBA2D700079D2DD /* BMCarouselViewUITests */,
@@ -101,25 +110,14 @@
 		8265D69F1EBA2D700079D2DD /* BMCarouselView */ = {
 			isa = PBXGroup;
 			children = (
-				8265D6A31EBA2D700079D2DD /* AppDelegate.h */,
-				8265D6A41EBA2D700079D2DD /* AppDelegate.m */,
-				8265D6A61EBA2D700079D2DD /* ViewController.h */,
-				8265D6A71EBA2D700079D2DD /* ViewController.m */,
-				8265D6A91EBA2D700079D2DD /* Main.storyboard */,
-				8265D6AC1EBA2D700079D2DD /* Assets.xcassets */,
-				8265D6AE1EBA2D700079D2DD /* LaunchScreen.storyboard */,
-				8265D6B11EBA2D700079D2DD /* Info.plist */,
-				8265D6A01EBA2D700079D2DD /* Supporting Files */,
+				827088631ED46104003AB4DC /* BMCarouselView.h */,
+				827088641ED46104003AB4DC /* BMCarouselView.m */,
+				827088661ED46367003AB4DC /* BMCarouselCollectionViewFlowLayout.h */,
+				827088671ED46367003AB4DC /* BMCarouselCollectionViewFlowLayout.m */,
+				827088691ED46392003AB4DC /* BMCarouselCollectionViewCell.h */,
+				8270886A1ED46392003AB4DC /* BMCarouselCollectionViewCell.m */,
 			);
 			path = BMCarouselView;
-			sourceTree = "<group>";
-		};
-		8265D6A01EBA2D700079D2DD /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8265D6A11EBA2D700079D2DD /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8265D6B91EBA2D700079D2DD /* BMCarouselViewTests */ = {
@@ -138,6 +136,21 @@
 				8265D6C71EBA2D700079D2DD /* Info.plist */,
 			);
 			path = BMCarouselViewUITests;
+			sourceTree = "<group>";
+		};
+		827088531ED45D0A003AB4DC /* BMCarouselViewDemo */ = {
+			isa = PBXGroup;
+			children = (
+				827088541ED45D0A003AB4DC /* AppDelegate.h */,
+				827088551ED45D0A003AB4DC /* AppDelegate.m */,
+				827088561ED45D0A003AB4DC /* Assets.xcassets */,
+				827088571ED45D0A003AB4DC /* LaunchScreen.storyboard */,
+				827088591ED45D0A003AB4DC /* Info.plist */,
+				8270885A1ED45D0A003AB4DC /* main.m */,
+				8270885B1ED45D0A003AB4DC /* ViewController.h */,
+				8270885C1ED45D0A003AB4DC /* ViewController.m */,
+			);
+			path = BMCarouselViewDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,9 +262,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8265D6B01EBA2D700079D2DD /* LaunchScreen.storyboard in Resources */,
-				8265D6AD1EBA2D700079D2DD /* Assets.xcassets in Resources */,
-				8265D6AB1EBA2D700079D2DD /* Main.storyboard in Resources */,
+				8270885F1ED45D0A003AB4DC /* LaunchScreen.storyboard in Resources */,
+				8270885E1ED45D0A003AB4DC /* Assets.xcassets in Resources */,
+				827088601ED45D0A003AB4DC /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,9 +289,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8265D6A81EBA2D700079D2DD /* ViewController.m in Sources */,
-				8265D6A51EBA2D700079D2DD /* AppDelegate.m in Sources */,
-				8265D6A21EBA2D700079D2DD /* main.m in Sources */,
+				827088681ED46367003AB4DC /* BMCarouselCollectionViewFlowLayout.m in Sources */,
+				827088621ED45D0A003AB4DC /* ViewController.m in Sources */,
+				827088611ED45D0A003AB4DC /* main.m in Sources */,
+				8270886B1ED46392003AB4DC /* BMCarouselCollectionViewCell.m in Sources */,
+				8270885D1ED45D0A003AB4DC /* AppDelegate.m in Sources */,
+				827088651ED46104003AB4DC /* BMCarouselView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,18 +330,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8265D6A91EBA2D700079D2DD /* Main.storyboard */ = {
+		827088571ED45D0A003AB4DC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				8265D6AA1EBA2D700079D2DD /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		8265D6AE1EBA2D700079D2DD /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8265D6AF1EBA2D700079D2DD /* Base */,
+				827088581ED45D0A003AB4DC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -428,7 +436,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6CJH7SB2KM;
-				INFOPLIST_FILE = BMCarouselView/Info.plist;
+				INFOPLIST_FILE = BMCarouselViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlueMercury.BMCarouselView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,7 +448,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6CJH7SB2KM;
-				INFOPLIST_FILE = BMCarouselView/Info.plist;
+				INFOPLIST_FILE = BMCarouselViewDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlueMercury.BMCarouselView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,6 +524,7 @@
 				8265D6CC1EBA2D700079D2DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8265D6CD1EBA2D700079D2DD /* Build configuration list for PBXNativeTarget "BMCarouselViewTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +533,7 @@
 				8265D6CF1EBA2D700079D2DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8265D6D01EBA2D700079D2DD /* Build configuration list for PBXNativeTarget "BMCarouselViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +542,7 @@
 				8265D6D21EBA2D700079D2DD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
