@@ -10,4 +10,6 @@
 
 @interface BMCarouselCollectionViewCell : UICollectionViewCell
 
+- (void)configWithImage:(id)image;
+
 @end
