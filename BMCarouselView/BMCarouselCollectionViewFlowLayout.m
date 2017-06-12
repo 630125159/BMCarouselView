@@ -8,9 +8,7 @@
 
 #import "BMCarouselCollectionViewFlowLayout.h"
 
-#define SCREEN_WIDTH CGRectGetWidth([[UIScreen mainScreen] bounds])
-#define SCREEN_HEIGHT CGRectGetHeight([[UIScreen mainScreen] bounds])
-static const CGFloat kAspectRatio = 0.74; //图片宽高比，宽/高
+static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 static const CGFloat kLineSpacing = 20;   //图片之间的空隙
 
 @implementation BMCarouselCollectionViewFlowLayout
@@ -22,7 +20,7 @@ static const CGFloat kLineSpacing = 20;   //图片之间的空隙
     self.minimumLineSpacing = kLineSpacing;
     self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
-    CGFloat itemWidth = (SCREEN_WIDTH - kLineSpacing * 2) / 1.2; //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth
+    CGFloat itemWidth = (self.collectionView.frame.size.width - kLineSpacing * 2) / 1.2; //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth
     self.itemSize = CGSizeMake(itemWidth, itemWidth / kAspectRatio);
     [super prepareLayout];
 }
@@ -56,8 +54,8 @@ static const CGFloat kLineSpacing = 20;   //图片之间的空隙
 }
 
 - (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset withScrollingVelocity:(CGPoint)velocity {
-    if (proposedContentOffset.x > self.collectionViewContentSize.width - SCREEN_WIDTH * 1.5) {
-        return CGPointMake(self.collectionViewContentSize.width - SCREEN_WIDTH, 0);
+    if (proposedContentOffset.x > self.collectionViewContentSize.width - self.collectionView.frame.size.width * 1.5) {
+        return CGPointMake(self.collectionViewContentSize.width - self.collectionView.frame.size.width, 0);
     }
     
     // 1.获取collectionView最后停留的范围
