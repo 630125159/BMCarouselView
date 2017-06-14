@@ -8,20 +8,17 @@
 
 #import "BMCarouselCollectionViewFlowLayout.h"
 
-static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
-static const CGFloat kLineSpacing = 20;   //图片之间的空隙
-
 @implementation BMCarouselCollectionViewFlowLayout
 
 #pragma mark - Override
 - (void)prepareLayout {
     self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     // cell间距
-    self.minimumLineSpacing = kLineSpacing;
+    self.minimumLineSpacing = self.picSpacing;
     self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
-    CGFloat itemWidth = (self.collectionView.frame.size.width - kLineSpacing * 2) / 1.2; //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth
-    self.itemSize = CGSizeMake(itemWidth, itemWidth / kAspectRatio);
+    CGFloat itemWidth = (self.collectionView.frame.size.width - self.picSpacing * 2) / 1.2; //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth
+    self.itemSize = CGSizeMake(itemWidth, itemWidth / self.aspectRatio);
     [super prepareLayout];
 }
 

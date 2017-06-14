@@ -10,4 +10,7 @@
 
 @interface BMCarouselCollectionViewFlowLayout : UICollectionViewFlowLayout
 
+@property (nonatomic, assign) CGFloat aspectRatio;//图片宽高比，宽/高
+@property (nonatomic, assign) CGFloat picSpacing;//图片之间的空隙
+
 @end

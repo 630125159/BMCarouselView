@@ -24,15 +24,20 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 @property (nonatomic, strong) UIPageControl *pageControl;
 @property (nonatomic, assign) NSInteger centerItem;
 @property (nonatomic, assign) NSInteger currentIndexPathRow;
+@property (nonatomic, copy) NSArray *picArray;
+@property (nonatomic, assign) CGFloat aspectRatio;//图片宽高比，宽/高
+@property (nonatomic, assign) CGFloat picSpacing;//图片之间的空隙
 
 @end
 
 @implementation BMCarouselView
 
--(instancetype)initWithFrame:(CGRect)frame {
+-(instancetype)initWithFrame:(CGRect)frame pictureArray:(NSArray *)picArray pictureAspectRatio:(CGFloat)aspectRatio pictureSpacing:(CGFloat)picSpacing {
     self = [super initWithFrame:frame];
     if (self) {
         [self configUI];
+        self.aspectRatio = aspectRatio;
+        self.picSpacing = picSpacing;
     }
     return self;
 }
@@ -42,6 +47,8 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 - (void)configUI {
     self.backgroundColor = [UIColor clearColor];
     BMCarouselCollectionViewFlowLayout *layout = [[BMCarouselCollectionViewFlowLayout alloc] init];
+    layout.picSpacing = self.picSpacing;
+    layout.aspectRatio = self.aspectRatio;
     
     CGFloat collectionViewHeight =
     ceil((self.frame.size.width - kLineSpacing * 2) / 1.2 / kAspectRatio); //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth;
