@@ -10,4 +10,6 @@
 
 @interface BMCarouselView : UIView
 
+-(instancetype)initWithFrame:(CGRect)frame pictureArray:(NSArray *)picArray pictureSpacing:(CGFloat)picSpacing;
+
 @end

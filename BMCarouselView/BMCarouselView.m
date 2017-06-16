@@ -32,11 +32,14 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 
 @implementation BMCarouselView
 
--(instancetype)initWithFrame:(CGRect)frame pictureArray:(NSArray *)picArray pictureAspectRatio:(CGFloat)aspectRatio pictureSpacing:(CGFloat)picSpacing {
+-(instancetype)initWithFrame:(CGRect)frame pictureArray:(NSArray *)picArray pictureSpacing:(CGFloat)picSpacing {
     self = [super initWithFrame:frame];
     if (self) {
         [self configUI];
-        self.aspectRatio = aspectRatio;
+        if (picArray.count > 0) {
+            UIImage *firstPic = picArray[0];
+            self.aspectRatio = firstPic.size.width / firstPic.size.height;
+        }
         self.picSpacing = picSpacing;
     }
     return self;
