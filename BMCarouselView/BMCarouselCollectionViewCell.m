@@ -27,8 +27,8 @@
     return self;
 }
 
-- (void)configWithImage:(id)image {
-    self.imageView.layer.contents = (__bridge id _Nullable)([UIImage imageNamed:image].CGImage);
+- (void)configWithImage:(UIImage *)image {
+    self.imageView.layer.contents = (__bridge id _Nullable)(image.CGImage);
 }
 
 @end

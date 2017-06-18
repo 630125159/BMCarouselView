@@ -14,9 +14,6 @@
 
 static NSString *kCellIdentifier = @"CellIdentifier";
 static const NSUInteger kTotalItems = 100;
-static const NSUInteger kTotalPages = 4;
-static const CGFloat kLineSpacing = 20;   //图片之间的空隙
-static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 
 @interface BMCarouselView () <UIScrollViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -35,12 +32,14 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 -(instancetype)initWithFrame:(CGRect)frame pictureArray:(NSArray *)picArray pictureSpacing:(CGFloat)picSpacing {
     self = [super initWithFrame:frame];
     if (self) {
-        [self configUI];
+        self.picSpacing = picSpacing;
         if (picArray.count > 0) {
             UIImage *firstPic = picArray[0];
             self.aspectRatio = firstPic.size.width / firstPic.size.height;
+            self.picArray = picArray;
+            [self configUI];
         }
-        self.picSpacing = picSpacing;
+
     }
     return self;
 }
@@ -54,7 +53,7 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
     layout.aspectRatio = self.aspectRatio;
     
     CGFloat collectionViewHeight =
-    ceil((self.frame.size.width - kLineSpacing * 2) / 1.2 / kAspectRatio); //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth;
+    ceil((self.frame.size.width - self.picSpacing * 2) / 1.2 / self.aspectRatio); //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth;
     self.collectionView =
     [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, collectionViewHeight) collectionViewLayout:layout];
     [self addSubview:self.collectionView];
@@ -67,8 +66,8 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
     self.collectionView.decelerationRate = 0.1f;
     
     self.centerItem = kTotalItems / 2;
-    for (NSInteger i = self.centerItem; i < self.centerItem + kTotalPages; i++) {
-        if (0 == i % kTotalPages) {
+    for (NSInteger i = self.centerItem; i < self.centerItem + self.picArray.count; i++) {
+        if (0 == i % self.picArray.count) {
             self.centerItem = i;
             break;
         }
@@ -81,7 +80,7 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 
     
     self.pageControl = [[UIPageControl alloc] init];
-    self.pageControl.numberOfPages = kTotalPages;
+    self.pageControl.numberOfPages = self.picArray.count;
     CGRect pageControlFrame = self.pageControl.frame;
     pageControlFrame.origin.x = (self.frame.size.width - pageControlFrame.size.width) / 2;
     pageControlFrame.origin.y = collectionViewHeight + 10;
@@ -103,12 +102,12 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     BMCarouselCollectionViewCell *cell =
     [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
-    [cell configWithImage:[NSString stringWithFormat:@"introduce_%ld.jpg", indexPath.item % kTotalPages]];
+    [cell configWithImage:self.picArray[indexPath.item % self.picArray.count]];
     return cell;
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"click : %ld",indexPath.row % kTotalPages);
+    NSLog(@"click : %ld",indexPath.row % self.picArray.count);
 }
 
 #pragma mark UIScrollViewDelegate
@@ -122,7 +121,7 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
     [self backToCenterFromCurrentRow:indexPathNow.row];
     
     // 赋值给记录当前坐标的变量
-    self.pageControl.currentPage = indexPathNow.row % kTotalPages;
+    self.pageControl.currentPage = indexPathNow.row % self.picArray.count;
     [self.pageControl updateCurrentPageDisplay];
     self.currentIndexPathRow = indexPathNow.row;
     //[self.timer setFireDate:[NSDate dateWithTimeInterval:3 sinceDate:[NSDate dateNow]]];
@@ -134,8 +133,8 @@ static const CGFloat kAspectRatio = 1.37; //图片宽高比，宽/高
 
 //判断滚动到尽头，转到中部
 - (void)backToCenterFromCurrentRow:(NSInteger)currentRow {
-    if (currentRow <= kTotalPages || currentRow >= kTotalItems - kTotalPages) {
-        NSInteger currentItem = currentRow % kTotalPages;
+    if (currentRow <= self.picArray.count || currentRow >= kTotalItems - self.picArray.count) {
+        NSInteger currentItem = currentRow % self.picArray.count;
         self.currentIndexPathRow = self.centerItem + currentItem;
         [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndexPathRow inSection:0]
                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally

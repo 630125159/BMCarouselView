@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blackColor];
-    BMCarouselView *carouselView = [[BMCarouselView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500) pictureArray:@[[UIImage imageNamed:@"introduced_0"],[UIImage imageNamed:@"introduced_1"],[UIImage imageNamed:@"introduced_2"],[UIImage imageNamed:@"introduced_3"]] pictureSpacing:20];
+    BMCarouselView *carouselView = [[BMCarouselView alloc] initWithFrame:CGRectMake(0, 100, self.view.frame.size.width, 500) pictureArray:@[[UIImage imageNamed:@"introduce_0"],[UIImage imageNamed:@"introduce_1"],[UIImage imageNamed:@"introduce_2"],[UIImage imageNamed:@"introduce_3"]] pictureSpacing:5];
     [self.view addSubview:carouselView];
 }
 
