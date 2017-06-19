@@ -7,10 +7,10 @@
 //
 
 #import "BMCarouselView.h"
-#import "BMCarouselCollectionViewFlowLayout.h"
 #import "BMCarouselCollectionViewCell.h"
+#import "BMCarouselCollectionViewFlowLayout.h"
 
-#define WEAKSELF() __weak __typeof(&*self)weakSelf = self
+#define WEAKSELF() __weak __typeof(&*self) weakSelf = self
 
 static NSString *kCellIdentifier = @"CellIdentifier";
 static const NSUInteger kTotalItems = 100;
@@ -22,14 +22,14 @@ static const NSUInteger kTotalItems = 100;
 @property (nonatomic, assign) NSInteger centerItem;
 @property (nonatomic, assign) NSInteger currentIndexPathRow;
 @property (nonatomic, copy) NSArray *picArray;
-@property (nonatomic, assign) CGFloat aspectRatio;//图片宽高比，宽/高
-@property (nonatomic, assign) CGFloat picSpacing;//图片之间的空隙
+@property (nonatomic, assign) CGFloat aspectRatio; //图片宽高比，宽/高
+@property (nonatomic, assign) CGFloat picSpacing;  //图片之间的空隙
 
 @end
 
 @implementation BMCarouselView
 
--(instancetype)initWithFrame:(CGRect)frame pictureArray:(NSArray *)picArray pictureSpacing:(CGFloat)picSpacing {
+- (instancetype)initWithFrame:(CGRect)frame pictureArray:(NSArray *)picArray pictureSpacing:(CGFloat)picSpacing {
     self = [super initWithFrame:frame];
     if (self) {
         self.picSpacing = picSpacing;
@@ -39,7 +39,6 @@ static const NSUInteger kTotalItems = 100;
             self.picArray = picArray;
             [self configUI];
         }
-
     }
     return self;
 }
@@ -51,20 +50,19 @@ static const NSUInteger kTotalItems = 100;
     BMCarouselCollectionViewFlowLayout *layout = [[BMCarouselCollectionViewFlowLayout alloc] init];
     layout.picSpacing = self.picSpacing;
     layout.aspectRatio = self.aspectRatio;
-    
-    CGFloat collectionViewHeight =
-    ceil((self.frame.size.width - self.picSpacing * 2) / 1.2 / self.aspectRatio); //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth;
-    self.collectionView =
-    [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, collectionViewHeight) collectionViewLayout:layout];
+
+    CGFloat collectionViewHeight = ceil((self.frame.size.width - self.picSpacing * 2) / 1.2 /
+                                        self.aspectRatio); //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, collectionViewHeight)
+                                             collectionViewLayout:layout];
     [self addSubview:self.collectionView];
-    [self.collectionView registerClass:[BMCarouselCollectionViewCell class]
-            forCellWithReuseIdentifier:kCellIdentifier];
+    [self.collectionView registerClass:[BMCarouselCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.backgroundColor = [UIColor clearColor];
     self.collectionView.decelerationRate = 0.1f;
-    
+
     self.centerItem = kTotalItems / 2;
     for (NSInteger i = self.centerItem; i < self.centerItem + self.picArray.count; i++) {
         if (0 == i % self.picArray.count) {
@@ -76,9 +74,7 @@ static const NSUInteger kTotalItems = 100;
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:self.currentIndexPathRow inSection:0]
                                 atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
                                         animated:NO];
-    
 
-    
     self.pageControl = [[UIPageControl alloc] init];
     self.pageControl.numberOfPages = self.picArray.count;
     CGRect pageControlFrame = self.pageControl.frame;
@@ -86,7 +82,6 @@ static const NSUInteger kTotalItems = 100;
     pageControlFrame.origin.y = collectionViewHeight + 10;
     self.pageControl.frame = pageControlFrame;
     [self addSubview:self.pageControl];
-
 }
 
 #pragma mark UICollectionView
@@ -106,8 +101,8 @@ static const NSUInteger kTotalItems = 100;
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"click : %ld",indexPath.row % self.picArray.count);
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"click : %ld", indexPath.row % self.picArray.count);
 }
 
 #pragma mark UIScrollViewDelegate
@@ -116,10 +111,10 @@ static const NSUInteger kTotalItems = 100;
     CGPoint pInView = [self convertPoint:self.collectionView.center toView:self.collectionView];
     // 获取这一点的indexPath
     NSIndexPath *indexPathNow = [self.collectionView indexPathForItemAtPoint:pInView];
-    
+
     //判断滚动到尽头，转到中部
     [self backToCenterFromCurrentRow:indexPathNow.row];
-    
+
     // 赋值给记录当前坐标的变量
     self.pageControl.currentPage = indexPathNow.row % self.picArray.count;
     [self.pageControl updateCurrentPageDisplay];

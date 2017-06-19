@@ -16,8 +16,9 @@
     // cell间距
     self.minimumLineSpacing = self.picSpacing;
     self.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    
-    CGFloat itemWidth = (self.collectionView.frame.size.width - self.picSpacing * 2) / 1.2; //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth
+
+    CGFloat itemWidth =
+    (self.collectionView.frame.size.width - self.picSpacing * 2) / 1.2; //图片宽度+2个空隙+2个图片宽度的10% = ScreenWidth
     self.itemSize = CGSizeMake(itemWidth, itemWidth / self.aspectRatio);
     [super prepareLayout];
 }
@@ -29,11 +30,11 @@
 - (NSArray<UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect {
     NSArray *superAttributes = [super layoutAttributesForElementsInRect:rect];
     NSArray *attributes = [[NSArray alloc] initWithArray:superAttributes copyItems:YES];
-    
+
     CGRect visibleRect = CGRectMake(self.collectionView.contentOffset.x, self.collectionView.contentOffset.y,
                                     self.collectionView.frame.size.width, self.collectionView.frame.size.height);
     CGFloat offset = CGRectGetMidX(visibleRect);
-    
+
     [attributes enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes *attribute, NSUInteger idx, BOOL *_Nonnull stop) {
         CGFloat distance = offset - attribute.center.x;
         // 越往中心移动，值越小，那么缩放就越小，从而显示就越大
@@ -41,12 +42,12 @@
         CGFloat scaleForDistance = distance / self.itemSize.height;
         // 0.2可调整，值越大，显示就越大
         CGFloat scaleForCell = 0.9 + 0.1 * (1 - fabs(scaleForDistance));
-        
+
         // only scale y-axis
         attribute.transform3D = CATransform3DMakeScale(1, scaleForCell, 1);
         attribute.zIndex = 1;
     }];
-    
+
     return attributes;
 }
 
@@ -54,28 +55,28 @@
     if (proposedContentOffset.x > self.collectionViewContentSize.width - self.collectionView.frame.size.width * 1.5) {
         return CGPointMake(self.collectionViewContentSize.width - self.collectionView.frame.size.width, 0);
     }
-    
+
     // 1.获取collectionView最后停留的范围
     CGRect lastRect;
     lastRect.origin = proposedContentOffset;
     lastRect.size = self.collectionView.frame.size;
-    
+
     // 2.取出这个范围类所有布局属性
     NSArray *array = [self layoutAttributesForElementsInRect:lastRect];
-    
+
     // 3.遍历所有布局的属性
     //停止滑动时item应该在的位置
     __block CGFloat adjustOffsetX = MAXFLOAT;
-    
+
     //屏幕中间的X
-    
+
     CGFloat screenCenterX = proposedContentOffset.x + self.collectionView.frame.size.width / 2.0;
     [array enumerateObjectsUsingBlock:^(UICollectionViewLayoutAttributes *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
         if (ABS(obj.center.x - screenCenterX) < ABS(adjustOffsetX)) {
             adjustOffsetX = obj.center.x - screenCenterX;
         }
     }];
-    
+
     return CGPointMake(proposedContentOffset.x + adjustOffsetX, proposedContentOffset.y);
 }
 
